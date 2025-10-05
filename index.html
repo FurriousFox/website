@@ -3,7 +3,16 @@
 
 <head>
     <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi, interactive-widget=resizes-content" />
+
+    <meta name="darkreader-lock">
+    <meta name="darkreader" content="disable">
+    <meta name="color-scheme" content="dark">
+
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" type="image/png" href="icon.png">
+
     <meta charset="UTF-8">
     <title>*argv[]</title>
 </head>
@@ -11,32 +20,52 @@
 
 <body>
     <h3 class="argv"><a style="color: #999999;">*</a><a id="argv" style="color: white;"
-            href="https://argv.nl">argv</a><a style="color: #838383;">[]</a><a class="cursor">|</a>
+            href="https://argv.nl">argv</a><a style="color: #838383;">[]</a><a id="cursor">|</a>
     </h3>
 
     <div class="hello">
         <div class="me-border">
             <div class="me">
-                <a>Hi! I'm Micha, a passionate something something, who is 17 years old.<br>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text eversince the 1500s, when an unknown printer took a galley of type
-                    and
-                    scrambled it to make a type specimen book. It has survived not only five centuries, but also the
-                    leap
-                    into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with
-                    the
-                    release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing
-                    software like Aldus PageMaker including versions of Lorem Ipsum.</a>
+                <img src="FurriousFox.jpg" class="me-img" />
+                <div id="about">
+                    <a>Hi! I'm Micha <span>(he/him)</span>, and I'm <span id="age">17</span> years old.<br><br>
+                        I love everything software, especially low-level stuff
+                        <span class="small">(hardware is incredibly cool too though)</span>.
+
+                        Cybersecurity is apparently one of my strong suits; I accidentally find vulnerabilities on a
+                        regular basis in software of major corporations
+                        (<a href="https://som.today/">Somtoday</a>, <a href="https://picnic.app">Picnic</a>, <a
+                            href="https://basic-fit.com">Basic-Fit</a>, <a
+                            href="https://www.linkedin.com/company/detahq/">Deta</a>),
+                        and I hope to publish some blogs on them in the future.
+                    </a>
+                </div>
             </div>
         </div>
-
-        <!-- <h1>Hi!</h1>
-        <h1>idk somethingasd</h1> -->
     </div>
-    <!-- <h1 class="hello">hello</h1> -->
 </body>
 
+<script>
+    // argv text
+    document.getElementById("argv").innerText = "";
+
+    // age
+    const birthday = new Date(1193612400000);
+
+    const now = new Date();
+    let years = now.getUTCFullYear() - birthday.getUTCFullYear();
+
+    birthday.setUTCFullYear(now.getUTCFullYear());
+    if (birthday <= now) {
+        birthday.setUTCFullYear(now.getUTCFullYear() + 1);
+        years++;
+    }
+    const
+        birthday_year = birthday.getUTCFullYear();
+    years -= (birthday - now) / (3600000 * 24 * (((birthday_year % 4 === 0 &&
+        birthday_year % 100 !== 0) || (birthday_year % 400 === 0)) ? 366 : 365));
+    document.getElementById("age").innerText = years.toFixed(8);
+</script>
 <script src="script.js"></script>
 
 </html>

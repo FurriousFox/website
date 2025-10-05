@@ -1,3 +1,7 @@
+:root {
+    color-scheme: dark;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -13,7 +17,7 @@ body {
         url("/fonts/oeui.ttf") format("truetype");
     font-weight: 400;
     font-style: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Bold */
@@ -23,7 +27,7 @@ body {
         url("/fonts/oeuib.ttf") format("truetype");
     font-weight: 700;
     font-style: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Italic */
@@ -33,7 +37,7 @@ body {
         url("/fonts/oeuii.ttf") format("truetype");
     font-weight: 400;
     font-style: italic;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Light */
@@ -43,7 +47,7 @@ body {
         url("/fonts/oeuil.ttf") format("truetype");
     font-weight: 300;
     font-style: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* SemiLight */
@@ -53,7 +57,7 @@ body {
         url("/fonts/oeuisl.ttf") format("truetype");
     font-weight: 350;
     font-style: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Black (Heavy) */
@@ -63,7 +67,7 @@ body {
         url("/fonts/oeuiz.ttf") format("truetype");
     font-weight: 900;
     font-style: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Bold Italic */
@@ -73,7 +77,7 @@ body {
         url("/fonts/uibli.ttf") format("truetype");
     font-weight: 700;
     font-style: italic;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Black */
@@ -83,7 +87,7 @@ body {
         url("/fonts/uibl.ttf") format("truetype");
     font-weight: 800;
     font-style: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Emoji */
@@ -93,7 +97,7 @@ body {
         url("/fonts/uiemj.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Historic */
@@ -103,7 +107,7 @@ body {
         url("/fonts/uihis.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Light Italic */
@@ -113,7 +117,7 @@ body {
         url("/fonts/uili.ttf") format("truetype");
     font-weight: 300;
     font-style: italic;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Semibold */
@@ -123,7 +127,7 @@ body {
         url("/fonts/uisb.ttf") format("truetype");
     font-weight: 600;
     font-style: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Semibold Italic */
@@ -133,7 +137,7 @@ body {
         url("/fonts/uisbi.ttf") format("truetype");
     font-weight: 600;
     font-style: italic;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Semilight Italic */
@@ -143,7 +147,7 @@ body {
         url("/fonts/uisli.ttf") format("truetype");
     font-weight: 350;
     font-style: italic;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 /* Symbol */
@@ -153,7 +157,7 @@ body {
         url("/fonts/uisym.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
-    /* font-display: swap; */
+    font-display: block;
 }
 
 html,
@@ -168,7 +172,7 @@ body {
 
 * {
     background-color: black;
-    color: white;
+    color: #DDDDDD;
 }
 
 .hello {
@@ -213,10 +217,12 @@ body {
     align-content: center;
 
     padding: 2px 2px 2px 2px;
-    width: 33%;
+    width: 50%;
     min-width: min(500px, calc(100svw - 6px));
     max-width: min(700px, calc(100svw - 6px));
     border-radius: 5px;
+
+    z-index: 1;
 }
 
 @keyframes rotate_bg {
@@ -242,10 +248,34 @@ body {
 }
 
 .me {
-    width: auto;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
     border-radius: 5px;
-
+    display: flex;
     padding: 30px;
+}
+
+.me,
+.me * {
+    background-color: #222222;
+}
+
+.me span:not(.small) {
+    font-family: monospace;
+    font-size: larger;
+}
+
+.me .small {
+    color: #AAAAAA;
+}
+
+.me-img {
+    object-fit: contain;
+    width: min(calc(0.2 * min(500px, calc(100svw - 6px))), 100px);
+    margin-right: 30px;
+    height: min(calc(0.2 * min(500px, calc(100svw - 6px))), 100px);
+    margin-top: 5px;
 }
 
 @keyframes blink {
@@ -259,7 +289,7 @@ body {
 }
 
 
-.cursor {
+#cursor {
     opacity: 0;
     color: lightgrey;
     display: inline-block;
