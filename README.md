@@ -1,13 +1,15 @@
 # website
 
 A personal website, featuring me and my projects.
+Available at [argv.nl](https://argv.nl).
+
+Works without Javascript!
 
 Made without bloat™ (react).
 
-## todo
+## features that I might add later
 
 - coding time
-- projects
 - listening / now playing
 - skills
 - hobbies
