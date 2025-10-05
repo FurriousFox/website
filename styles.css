@@ -6,6 +6,156 @@ body {
     align-content: center;
 }
 
+/* Regular */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI"),
+        url("/fonts/oeui.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    /* font-display: swap; */
+}
+
+/* Bold */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Bold"),
+        url("/fonts/oeuib.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    /* font-display: swap; */
+}
+
+/* Italic */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Italic"),
+        url("/fonts/oeuii.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+    /* font-display: swap; */
+}
+
+/* Light */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Light"),
+        url("/fonts/oeuil.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    /* font-display: swap; */
+}
+
+/* SemiLight */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Semilight"),
+        url("/fonts/oeuisl.ttf") format("truetype");
+    font-weight: 350;
+    font-style: normal;
+    /* font-display: swap; */
+}
+
+/* Black (Heavy) */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Bold Italic"),
+        url("/fonts/oeuiz.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    /* font-display: swap; */
+}
+
+/* Bold Italic */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Black Italic"),
+        url("/fonts/uibli.ttf") format("truetype");
+    font-weight: 700;
+    font-style: italic;
+    /* font-display: swap; */
+}
+
+/* Black */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Black"),
+        url("/fonts/uibl.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+    /* font-display: swap; */
+}
+
+/* Emoji */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Emoji"),
+        url("/fonts/uiemj.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    /* font-display: swap; */
+}
+
+/* Historic */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Historic"),
+        url("/fonts/uihis.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    /* font-display: swap; */
+}
+
+/* Light Italic */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Light Italic"),
+        url("/fonts/uili.ttf") format("truetype");
+    font-weight: 300;
+    font-style: italic;
+    /* font-display: swap; */
+}
+
+/* Semibold */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Semibold"),
+        url("/fonts/uisb.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+    /* font-display: swap; */
+}
+
+/* Semibold Italic */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Semibold Italic"),
+        url("/fonts/uisbi.ttf") format("truetype");
+    font-weight: 600;
+    font-style: italic;
+    /* font-display: swap; */
+}
+
+/* Semilight Italic */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Semilight Italic"),
+        url("/fonts/uisli.ttf") format("truetype");
+    font-weight: 350;
+    font-style: italic;
+    /* font-display: swap; */
+}
+
+/* Symbol */
+@font-face {
+    font-family: "Segoe UI web";
+    src: local("Segoe UI Symbol"),
+        url("/fonts/uisym.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+    /* font-display: swap; */
+}
+
 html,
 body {
     margin: 0;
@@ -13,7 +163,7 @@ body {
     height: 200%;
     /* height: auto; */
     width: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI web", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 * {
