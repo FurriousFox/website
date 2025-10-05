@@ -1,0 +1,116 @@
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 200%;
+    /* height: auto; */
+    width: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    background-color: black;
+    color: white;
+}
+
+.hello {
+    height: 100svh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.argv {
+    position: absolute;
+    left: 0px;
+    margin: 10px 10px 10px 10px;
+
+    color: #666666;
+}
+
+.me-border {
+    background: linear-gradient(45deg,
+            hsl(0, 100%, 40%) 0%,
+            hsl(60, 100%, 40%) 16.6%,
+            hsl(120, 100%, 40%) 33.3%,
+            hsl(180, 100%, 40%) 50%,
+            hsl(240, 100%, 40%) 66.6%,
+            hsl(300, 100%, 40%) 83.3%,
+            hsl(360, 100%, 40%) 100%);
+    animation: rotate_bg 30s ease-in-out infinite;
+    background-size: 400% 400%;
+
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    padding: 2px 2px 2px 2px;
+    width: 33%;
+    min-width: min(500px, calc(100svw - 6px));
+    max-width: min(700px, calc(100svw - 6px));
+    border-radius: 5px;
+}
+
+@keyframes rotate_bg {
+    0% {
+        background-position: 0% 100%;
+    }
+
+    25% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 0% 100%;
+    }
+
+    75% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.me {
+    width: auto;
+    border-radius: 5px;
+
+    padding: 30px;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+.cursor {
+    opacity: 0;
+    color: lightgrey;
+    display: inline-block;
+}

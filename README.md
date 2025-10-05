@@ -17,5 +17,3 @@ A personal website, also works without JavaScript.
 - "made without bloat (react)" footer
 - internet.nl score
 - ssllabs
-
-asd
