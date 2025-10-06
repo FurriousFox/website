@@ -8,7 +8,7 @@ setTimeout(() => {
     cursor.style = "animation: blink 2s steps(1) infinite";
 }, 1000 + 900 + 250);
 
-setInterval(window.age = age = () => {
+setInterval(() => {
     const birthday = new Date(1193612400000);
 
     const now = new Date();

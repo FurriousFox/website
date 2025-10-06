@@ -330,8 +330,6 @@ body *:not(#project-pointer, #scroll, .hello) {
 
 #projects>div {
     flex: 0 0 35%;
-    /* height: 100%; */
-    /* min-width: 35%; */
     box-sizing: border-box;
 
     padding: 20px;
@@ -348,7 +346,7 @@ body *:not(#project-pointer, #scroll, .hello) {
 
 @media (max-width: 600px) {
     #projects>div {
-        flex: 1 0 35%;
+        flex: 1 0 60%;
     }
 }
 
@@ -375,6 +373,9 @@ body *:not(#project-pointer, #scroll, .hello) {
     width: min(calc(0.2 * min(500px, calc(100svw - 6px))), 100px);
     margin-right: min(30px, 5svw);
     height: min(calc(0.2 * min(500px, calc(100svw - 6px))), 100px);
+}
+
+#projects>div>header>img.round {
     border-radius: 10px;
 }
 

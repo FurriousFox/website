@@ -5,7 +5,7 @@ Available at [argv.nl](https://argv.nl).
 
 Works without Javascript!
 
-Made without bloat™ (react).
+Made without bloat™ (React).
 
 ## features that I might add later
 
@@ -21,3 +21,4 @@ Made without bloat™ (react).
 - ssllabs
 - worker to cache
 - fully functional without javascript
+- friends
