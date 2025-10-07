@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="styles.css">
     <meta name="viewport"
-        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi, interactive-widget=resizes-content" />
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi, interactive-widget=resizes-content">
 
-    <meta name="darkreader-lock">
+    <meta name="darkreader-lock" content="lock">
     <meta name="darkreader" content="disable">
     <meta name="color-scheme" content="dark">
 
-    <link rel="apple-touch-icon" href="icon.png">
-    <link rel="icon" type="image/png" href="icon.png">
-
     <meta charset="UTF-8">
     <title>*argv[]</title>
+
+    <meta name="description" content="My little corner of the internet.">
+    <meta name="keywords" content="Micha, FurriousFox, argv">
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" type="image/png" href="icon.png">
 </head>
 
 
@@ -26,19 +30,18 @@
     <div class="hello">
         <div class="me-border">
             <div class="me">
-                <img src="images/FurriousFox.jpg" class="me-img" />
+                <img src="images/FurriousFox.webp" alt="profile picture" class="me-img">
                 <div id="about">
-                    <a>Hi! I'm Micha <span>(he/him)</span>, and I'm <span id="age">17</span> years old.<br><br>
-                        I love everything software, especially low-level stuff
-                        <span class="small">(hardware is incredibly cool too though)</span>.
+                    Hi! I'm Micha <span>(he/him)</span>, and I'm <span id="age">17</span> years old.<br><br>
+                    I love everything software, especially low-level stuff
+                    <span class="small">(hardware is incredibly cool too though)</span>.
 
-                        Cybersecurity is apparently one of my strong suits, I accidentally find vulnerabilities on a
-                        regular basis in software of major corporations
-                        (<a href="https://som.today/" target="_blank">Somtoday</a>, <a href="https://picnic.app"
-                            target="_blank">Picnic</a>, <a href="https://basic-fit.com" target="_blank">Basic-Fit</a>,
-                        <a href="https://www.linkedin.com/company/detahq/" target="_blank">Deta</a>),
-                        and I hope to publish some blogs on them in the future.
-                    </a>
+                    Cybersecurity is apparently one of my strong suits, I accidentally find vulnerabilities on a
+                    regular basis in software of major corporations
+                    (<a href="https://som.today/" target="_blank">Somtoday</a>, <a href="https://picnic.app"
+                        target="_blank">Picnic</a>, <a href="https://basic-fit.com" target="_blank">Basic-Fit</a>,
+                    <a href="https://www.linkedin.com/company/detahq/" target="_blank">Deta</a>),
+                    and I hope to publish some blogs on them in the future.
                 </div>
             </div>
         </div>
@@ -50,7 +53,8 @@
     <div id="projects">
         <div>
             <header>
-                <img src="images/Bopper.png" class="round" />
+                <img fetchpriority="low" loading="lazy" alt="Discord bot profile picture" src="images/Bopper.webp"
+                    class="round">
                 <h1>Bopper</h1>
             </header>
             <a>Bopper is a discord bot mainly focussed on engagement, offering features like AI, lapo (last post of the
@@ -68,7 +72,8 @@
 
         <div>
             <header>
-                <img src="images/Inlook.png" />
+                <img fetchpriority="low" loading="lazy" alt="Clippy in front of old Outlook logo"
+                    src="images/Inlook.webp">
                 <h1>Inlook</h1>
             </header>
             <a>Inlook is a bidge between Outlook Web and IMAP, so you can use any email client, even if your school /
@@ -85,7 +90,7 @@
 
         <div>
             <header>
-                <img src="images/Foresight.png" />
+                <img fetchpriority="low" loading="lazy" alt="Foresight app logo" src="images/Foresight.webp">
                 <h1>Foresight</h1>
             </header>
             <a>Foresight is a third-party integration to Habitica allowing you to look into the future and plan your
@@ -100,29 +105,9 @@
             </footer>
         </div>
     </div>
+
+
+    <script src="script.js"></script>
 </body>
-
-<script>
-    // argv text
-    document.getElementById("argv").innerText = "";
-
-    // age
-    const birthday = new Date(1193612400000);
-
-    const now = new Date();
-    let years = now.getUTCFullYear() - birthday.getUTCFullYear();
-
-    birthday.setUTCFullYear(now.getUTCFullYear());
-    if (birthday <= now) {
-        birthday.setUTCFullYear(now.getUTCFullYear() + 1);
-        years++;
-    }
-    const
-        birthday_year = birthday.getUTCFullYear();
-    years -= (birthday - now) / (3600000 * 24 * (((birthday_year % 4 === 0 &&
-        birthday_year % 100 !== 0) || (birthday_year % 400 === 0)) ? 366 : 365));
-    document.getElementById("age").innerText = years.toFixed(8);
-</script>
-<script src="script.js"></script>
 
 </html>
