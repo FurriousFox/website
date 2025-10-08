@@ -33,20 +33,17 @@ const server = http.createServer((req, res) => {
         let html = fs.readFileSync(req_path, "utf-8");
 
         // inline css
-        html = html.replace(/<link(?:(?:.*rel="stylesheet".*href="([^"]+?)".*)|(?:.*href="([^"]+?)".*rel="stylesheet".*))>/g, (link_tag) => {
-            const filename = link_tag.replace(/<link(?:(?:.*rel="stylesheet".*href="([^"]+?)".*)|(?:.*href="([^"]+?)".*rel="stylesheet".*))>/, "$1");
+        html = html.replace(/<link(?:(?:.*rel="stylesheet".*href="([^"]+?)".*)|(?:.*href="([^"]+?)".*rel="stylesheet".*))>/g, (_link_tag, filename) => {
             return `<style>\n${fs.readFileSync(path.join(base_dir, filename), "utf-8")}\n</style>`;
         });
 
         // inline js
-        html = html.replace(/<script (?:.*src="([^"]+?)".*?)><\/script>/g, (script_tag) => {
-            const filename = script_tag.replace(/<script (?:.*src="([^"]+?)".*?)><\/script>/, "$1");
+        html = html.replace(/<script (?:.*src="([^"]+?)".*?)><\/script>/g, (_script_tag, filename) => {
             return `<script>\n${fs.readFileSync(path.join(base_dir, filename), "utf-8")}\n</script>`;
         });
 
         // inline profile picture
-        const pp_dataurl = `src="data:image/webp;base64,${fs.readFileSync(path.join(base_dir, "images/FurriousFox.webp"), "base64")}"`;
-        html = html.replace(`src="images/FurriousFox.webp"`, pp_dataurl);
+        html = html.replace(`src="images/FurriousFox.webp"`, `src="data:image/webp;base64,${fs.readFileSync(path.join(base_dir, "images/FurriousFox.webp"), "base64")}"`);
 
         res.writeHead(200, "OK", {
             "content-type": `${mime.lookup(req_path) || 'application/octet-stream'}`,
