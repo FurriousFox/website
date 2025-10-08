@@ -10,7 +10,7 @@ setTimeout(() => {
 
 {
     let updateAge;
-    setInterval(updateAge = () => {
+    setInterval(updateAge = (document = globalThis.document) => {
         const birthday = new Date(1193612400000);
 
         const now = new Date();
@@ -27,4 +27,21 @@ setTimeout(() => {
         document.getElementById("age").innerText = years.toFixed(8);
     }, 100);
     updateAge();
+
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register("/sw.js");
+
+        navigator.serviceWorker.addEventListener("message", async (event) => {
+            const newDOM = new DOMParser().parseFromString(await event.data.text(), "text/html");
+            updateAge(newDOM);
+            newDOM.getElementById("argv").innerText = "";
+
+            document.replaceChild(
+                document.adoptNode(newDOM.documentElement),
+                document.documentElement
+            );
+        });
+    }
 }
+
