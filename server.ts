@@ -22,7 +22,7 @@ const server = http.createServer((req, res) => {
     if (!fs.existsSync(req_path) ||
         !(fs.statSync(req_path).isFile())) { res.writeHead(404); res.end(); return; }
 
-    if (req.url == "/index.html") {
+    if (req_url.pathname == "/index.html") {
         let html = fs.readFileSync(req_path, "utf-8");
 
         // inline css
