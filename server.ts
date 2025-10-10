@@ -11,17 +11,10 @@ process.on("uncaughtException", console.log);
 process.on("unhandledRejection", console.log);
 
 const server = http.createServer((req, res) => {
-    if (req.method !== "GET" ||
-        (req.headers["host"] !== "site.argv.nl" &&
-            req.headers["host"] !== "jsite.argv.nl" &&
-            req.headers["host"] !== "argv.nl" &&
-            req.headers["host"] !== "www.argv.nl")
-    ) { res.writeHead(404); res.end(); return; }
-
     if (req.url == undefined) req.url = "/";
-    if (req.url == "/") req.url = "/index.html";
 
     const req_url = new URL(req.url, "http://localhost");
+    if (req_url.pathname == "/") req_url.pathname = "/index.html";
     const req_path = path.join(base_dir, req_url.pathname);
     const relative_path = path.relative(base_dir, req_path);
     if (relative_path.startsWith("..")) { res.writeHead(404); res.end(); return; }
