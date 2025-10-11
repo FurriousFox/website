@@ -18,7 +18,6 @@ Made without bloat™ (React).
 - general links to argv.nl (e.g. gitlab)
 - internet.nl score
 - ssllabs
-- fully functional without javascript
 - friends
 
 - home / status / etc
