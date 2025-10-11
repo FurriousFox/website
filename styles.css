@@ -378,10 +378,15 @@ body {
     text-decoration: none;
 }
 
+@media (min-width: 1111px) {
+    #about {
+        padding-left: 20px !important;
+    }
+}
+
 @media (min-width: 501px) {
     #about {
         margin: auto;
-        padding-left: 20px !important;
         padding-right: 10px;
     }
 }

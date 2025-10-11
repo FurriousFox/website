@@ -1,12 +1,11 @@
 document.getElementById("argv").innerText = "";
+document.getElementById("cursor").style = "";
+
 setTimeout(() => document.getElementById("argv").innerText += "a", 850 + 0);
 setTimeout(() => document.getElementById("argv").innerText += "r", 850 + 250);
 setTimeout(() => document.getElementById("argv").innerText += "g", 850 + 650);
 setTimeout(() => document.getElementById("argv").innerText += "v", 850 + 900);
-setTimeout(() => {
-    const cursor = document.getElementById("cursor");
-    cursor.style = "animation: blink 2s steps(1) infinite";
-}, 850 + 900 + 250);
+setTimeout(() => document.getElementById("cursor").style = "animation: blink 2s steps(1) infinite", 850 + 900 + 250);
 
 {
     let updateAge;
@@ -36,6 +35,7 @@ setTimeout(() => {
             const newDOM = new DOMParser().parseFromString(await event.data.text(), "text/html");
             updateAge(newDOM);
             newDOM.getElementById("argv").innerText = "";
+            newDOM.getElementById("cursor").style = "";
 
             document.replaceChild(
                 document.adoptNode(newDOM.documentElement),

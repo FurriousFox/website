@@ -24,7 +24,8 @@
 
 <body>
     <h3 class="argv"><a style="color: #999999;">*</a><a id="argv" style="color: white;"
-            href="https://argv.nl">argv</a><a style="color: #838383;">[]</a><a id="cursor">|</a>
+            href="https://argv.nl">argv</a><a style="color: #838383;">[]</a><a id="cursor"
+            style="animation: blink 2s steps(1) infinite">|</a>
     </h3>
 
     <div class="hello">
@@ -65,7 +66,10 @@
 
 
                 <div id="about">
-                    Hi! I'm Micha <span>(he/him)</span>, and I'm <span id="age">17</span> years old.<br><br>
+                    Hi! I'm Micha <span>(he/him)</span>, and I'm <span id="age"><iframe src="/preage.html"
+                            style="border: none; width: 11ch; height: 2ch; overflow: hidden; bottom: -2.5px; position: relative;"
+                            frameborder="0" scrolling="no"></iframe></span>
+                    years old.<br><br>
                     I love everything software, especially low-level stuff
                     <span class="small">(hardware is incredibly cool too though)</span>.
 
@@ -144,3 +148,5 @@
 </body>
 
 </html>
+
+<!-- <link rel="stylesheet" href="stream.css"> -->

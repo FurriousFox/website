@@ -22,7 +22,44 @@ const server = http.createServer((req, res) => {
     if (!fs.existsSync(req_path) ||
         !(fs.statSync(req_path).isFile())) { res.writeHead(404); res.end(); return; }
 
-    if (req_url.pathname == "/index.html") {
+    if (req_url.pathname == "/age") {
+        res.writeHead(200, "OK", {
+            "Transfer-Encoding": "chunked",
+            "content-type": "text/html"
+        });
+
+        res.write(`<meta http-equiv="refresh" content="0"><style>span {font-family: monospace; font-size: larger; }\nhtml, body { margin: 0; padding: 0; overflow: hidden;}\n* { background-color: #222222; color: #DDDDDD; }</style>\n`);
+
+        let a = 0;
+        let old_year = "";
+        (async () => {
+            try {
+                while (a < 3600) {
+                    if (req.destroyed || res?.socket?.destroyed || (res.socket == null)) { break; }
+
+                    const birthday = new Date(1193612400000);
+
+                    const now = new Date();
+                    let years = now.getUTCFullYear() - birthday.getUTCFullYear();
+
+                    birthday.setUTCFullYear(now.getUTCFullYear());
+                    if (birthday <= now) {
+                        birthday.setUTCFullYear(now.getUTCFullYear() + 1);
+                        years++;
+                    }
+                    const birthday_year = birthday.getUTCFullYear();
+                    years -= ((+birthday) - (+now)) / (3600000 * 24 * (((birthday_year % 4 === 0 && birthday_year % 100 !== 0) || (birthday_year % 400 === 0)) ? 366 : 365));
+
+                    if (old_year !== years.toFixed(8).toString()) {
+                        old_year = years.toFixed(8).toString();
+                        res.write(`\r\n<style>#span${a} {display: none !important; }</style><span id="span${++a}">${years.toFixed(8)}</span>`);
+                    }
+
+                    await new Promise(r => setTimeout(r, 50));
+                }
+            } finally { res.end(); }
+        })();
+    } else if (req_url.pathname == "/index.html") {
         let html = fs.readFileSync(req_path, "utf-8");
 
         // inline css
@@ -39,6 +76,7 @@ const server = http.createServer((req, res) => {
         html = html.replace(`src="images/FurriousFox.webp"`, `src="data:image/webp;base64,${fs.readFileSync(path.join(base_dir, "images/FurriousFox.webp"), "base64")}"`);
 
         res.writeHead(200, "OK", {
+            "Transfer-Encoding": "chunked",
             "content-type": `${mime.lookup(req_path) || 'application/octet-stream'}`,
         });
         res.end(html);

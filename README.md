@@ -15,7 +15,6 @@ Made without bloat™ (React).
 - hobbies
 - future projects / in progress
 - blog / bug-hunting
-- social media links; desktop at the bottom, mobile at the side
 - general links to argv.nl (e.g. gitlab)
 - internet.nl score
 - ssllabs
